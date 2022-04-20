@@ -1,0 +1,24 @@
+_format_version: '2.1'
+_transform: true
+consumers:
+- plugins:
+  - config:
+      hour: 10000
+      policy: local
+      second: 5
+    name: rate-limiting
+  username: appuser
+routes:
+- name: default-route
+  paths:
+  - /
+  service: first
+- name: second
+  paths:
+  - /second
+  service: second
+services:
+- name: second
+  url: https://myservicesjn6cz4j-second.functions.fnc.fr-par.scw.cloud
+- name: first
+  url: https://myservicesjn6cz4j-first.functions.fnc.fr-par.scw.cloud

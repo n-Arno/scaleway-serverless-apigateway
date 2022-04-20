@@ -1,0 +1,23 @@
+service: apiGateway
+configValidationMode: off
+provider:
+  name: scaleway
+
+plugins:
+  - serverless-scaleway-functions
+
+package:
+  patterns:
+    - '!node_modules/**'
+    - '!.gitignore'
+    - '!.git/**'
+    - '!Makefile'
+    - '!helper.py'
+
+custom:
+  containers:
+    kong:
+      directory: kong
+      minScale: 1
+      memoryLimit: 256
+      port: 8000

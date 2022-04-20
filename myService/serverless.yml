@@ -1,0 +1,26 @@
+service: myService
+configValidationMode: off
+provider:
+  name: scaleway
+  runtime: python3
+  # Global Environment variables - used in every functions
+  env:
+    test: test
+
+plugins:
+  - serverless-scaleway-functions
+
+package:
+  patterns:
+    - '!node_modules/**'
+    - '!.gitignore'
+    - '!.git/**'
+    - '!Makefile'
+
+functions:
+  first:
+    handler: handler.handle1
+    minScale: 1
+  second:
+    handler: handler.handle2
+    minScale: 1
