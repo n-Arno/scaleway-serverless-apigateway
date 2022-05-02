@@ -18,7 +18,3 @@ routes:
   - /second
   service: second
 services:
-- name: second
-  url: https://myservicesjn6cz4j-second.functions.fnc.fr-par.scw.cloud
-- name: first
-  url: https://myservicesjn6cz4j-first.functions.fnc.fr-par.scw.cloud

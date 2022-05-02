@@ -1,11 +1,13 @@
-all:
-	make -C myService deploy
-	make -C apiGateway deploy
+deploy: node_modules
+	serverless deploy
 
-clean:
-	- make -C apiGateway remove
-	- make -C myService remove
+node_modules:
+	npm i
 
-dist-clean:
-	- make -C apiGateway dist-clean
-	- make -C myService dist-clean
+remove:
+	- serverless remove --service=apiGateway
+	- serverless remove --service=myService
+
+dist-clean: remove
+	- rm -rf node_modules package-lock.json
+	- find . -name .serverless -exec rm -rf "{}" +

@@ -2,6 +2,9 @@ service: apiGateway
 configValidationMode: off
 provider:
   name: scaleway
+  secret:
+    SCALEWAY_SECRET_KEY: ${SCW_SECRET_KEY}
+    SCALEWAY_DEFAULT_PROJECT_ID: ${SCW_DEFAULT_PROJECT_ID}
 
 plugins:
   - serverless-scaleway-functions
@@ -12,7 +15,6 @@ package:
     - '!.gitignore'
     - '!.git/**'
     - '!Makefile'
-    - '!helper.py'
 
 custom:
   containers:
@@ -21,3 +23,5 @@ custom:
       minScale: 1
       memoryLimit: 256
       port: 8000
+      env:
+        FUNCTION_NAMESPACE: myService
