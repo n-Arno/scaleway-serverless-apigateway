@@ -12,9 +12,9 @@ routes:
 - name: default-route
   paths:
   - /
-  service: first
-- name: second
+  service: commands
+- name: orders
   paths:
-  - /second
-  service: second
+  - /orders
+  service: orders
 services:

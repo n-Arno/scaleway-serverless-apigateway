@@ -2,6 +2,7 @@ service: apiGateway
 configValidationMode: off
 provider:
   name: scaleway
+  scwRegion: nl-ams
   secret:
     SCALEWAY_SECRET_KEY: ${SCW_SECRET_KEY}
     SCALEWAY_DEFAULT_PROJECT_ID: ${SCW_DEFAULT_PROJECT_ID}
@@ -21,7 +22,7 @@ custom:
     kong:
       directory: kong
       minScale: 1
-      memoryLimit: 256
+      memoryLimit: 512
       port: 8000
       env:
-        FUNCTION_NAMESPACE: myService
+        FUNCTION_NAMESPACE: myApp

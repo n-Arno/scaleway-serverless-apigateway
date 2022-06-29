@@ -1,8 +1,8 @@
 # serverless-compose.yml
 services:
-  myService:
-    path: myService
+  myApp:
+    path: myApp
   apiGateway:
     path: apiGateway
     dependsOn:
-      - myService
+      - myApp

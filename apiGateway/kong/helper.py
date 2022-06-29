@@ -33,10 +33,10 @@ def main():
     if len(sys.argv) != 3:
         print(f'Usage: {sys.argv[0]} <service_name> <path to kong.yml>')
         sys.exit(1)
-    r = get(f'functions/v1beta1/regions/fr-par/namespaces?project_id={os.environ.get("SCALEWAY_DEFAULT_PROJECT_ID")}&name={sys.argv[1]}')
+    r = get(f'functions/v1beta1/regions/nl-ams/namespaces?project_id={os.environ.get("SCALEWAY_DEFAULT_PROJECT_ID")}&name={sys.argv[1]}')
     namespace_id = r["namespaces"][0]["id"]
     print(f"Found ID {namespace_id} for service {sys.argv[1]}")
-    r = get(f'functions/v1beta1/regions/fr-par/namespaces/{namespace_id}/functions')
+    r = get(f'functions/v1beta1/regions/nl-ams/namespaces/{namespace_id}/functions')
     fns = [ {"name": fn["name"], "url": f'https://{fn["domain_name"]}'} for fn in r["functions"]]
     print(f"Services found: {fns}")
     k = load(sys.argv[2])

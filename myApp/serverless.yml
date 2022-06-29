@@ -1,11 +1,9 @@
-service: myService
+service: myApp
 configValidationMode: off
 provider:
   name: scaleway
-  runtime: python3
-  # Global Environment variables - used in every functions
-  env:
-    test: test
+  scwRegion: nl-ams
+  runtime: python310
 
 plugins:
   - serverless-scaleway-functions
@@ -18,9 +16,11 @@ package:
     - '!Makefile'
 
 functions:
-  first:
-    handler: handler.handle1
+  orders:
+    handler: orders.order
+    memoryLimit: 256
     minScale: 1
-  second:
-    handler: handler.handle2
+  commands:
+    handler: commands.command
+    memoryLimit: 256
     minScale: 1
