@@ -3,9 +3,6 @@ configValidationMode: off
 provider:
   name: scaleway
   scwRegion: nl-ams
-  secret:
-    SCALEWAY_SECRET_KEY: ${SCW_SECRET_KEY}
-    SCALEWAY_DEFAULT_PROJECT_ID: ${SCW_DEFAULT_PROJECT_ID}
 
 plugins:
   - serverless-scaleway-functions
@@ -25,4 +22,5 @@ custom:
       memoryLimit: 512
       port: 8000
       env:
-        FUNCTION_NAMESPACE: myApp
+        COMMANDS_URL: ${param:commandUrl}
+        ORDERS_URL: ${param:orderUrl}

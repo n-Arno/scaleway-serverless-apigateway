@@ -4,5 +4,8 @@ services:
     path: myApp
   apiGateway:
     path: apiGateway
+    params:
+      commandUrl: ${myApp.functions.commands.domain_name}
+      orderUrl: ${myApp.functions.orders.domain_name}
     dependsOn:
       - myApp

@@ -18,3 +18,7 @@ routes:
   - /orders
   service: orders
 services:
+- name: commands
+  url: https://${COMMANDS_URL}
+- name: orders
+  url: https://${ORDERS_URL} 

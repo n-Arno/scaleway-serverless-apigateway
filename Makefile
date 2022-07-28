@@ -3,9 +3,6 @@ deploy: node_modules
 
 node_modules:
 	npm i
-	rm -rf node_modules/serverless-scaleway-functions
-	git -C node_modules clone -b aws-like-info https://github.com/n-Arno/serverless-scaleway-functions
-	cd node_modules/serverless-scaleway-functions && npm i && cd -
 
 clean: remove
 
