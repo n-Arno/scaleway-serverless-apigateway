@@ -20,7 +20,9 @@ functions:
     handler: orders.order
     memoryLimit: 256
     minScale: 1
+    privacy: private
   commands:
     handler: commands.command
     memoryLimit: 256
     minScale: 1
+    privacy: private

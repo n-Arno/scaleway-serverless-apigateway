@@ -24,3 +24,5 @@ custom:
       env:
         COMMANDS_URL: ${param:commandUrl}
         ORDERS_URL: ${param:orderUrl}
+      secret:
+        TOKEN: ${param:token}

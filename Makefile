@@ -8,6 +8,7 @@ clean: remove
 
 remove:
 	- serverless remove --service=apiGateway
+        - serverless remove --service=getToken
 	- serverless remove --service=myApp
 
 dist-clean: remove
